@@ -92,7 +92,7 @@ Jenkins Installation is Successful. You can now starting using the Jenkins
 ## Install the Docker Pipeline plugin in Jenkins:
 
    - Log in to Jenkins.
-   - Go to Manage Jenkins > Manage Plugins.
+   - Go to Manage Jenkins >  Plugins.
    - In the Available tab, search for "Docker Pipeline".
    - Select the plugin and click the Install button.
    - Restart Jenkins after the plugin is installed.
