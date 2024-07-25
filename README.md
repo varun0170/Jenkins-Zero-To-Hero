@@ -1,21 +1,18 @@
-# Jenkins-Zero-To-Hero
+For using jenkins as ci cd tool first we need to install jenkins on a machine which is called master node then we nwwd to configure multiple nodes know as worker nodes where actual work like pipeline will be running. 
+The purpose of this master and worker node configuration is beacuse in an orginazation there are multiple teams and multiple pipeline need to be run for that we will be just out of the compute if we use only master for all the pipelines to eradicate this we need to multiple instances(nodes) will be configured to master. so that master will divert the traffice accordengly. 
 
-Are you looking forward to learn Jenkins right from Zero(installation) to Hero(Build end to end pipelines)? then you are at the right place. 
+But for at a given point of time there there should be one master and one worker node always up and running even if at all there is no pipelines triggering that means we are wasting a lot of compute resourece and we will end up in high billing for which we have not used. 
 
-## Installation on EC2 Instance
+To overcome this problem we have used docker as an agent in our jenkins machine so that if at all there is a process runing docker will create a container on the fly for running that process and will delete the process once after the process has ben excuted. In this way we can save the billing. 
 
-YouTube Video ->
-https://www.youtube.com/watch?v=zZfhAXfBvVA&list=RDCMUCnnQ3ybuyFdzvgv2Ky5jnAA&index=1
-
-
-![Screenshot 2023-02-01 at 5 46 14 PM](https://user-images.githubusercontent.com/43399466/216040281-6c8b89c3-8c22-4620-ad1c-8edd78eb31ae.png)
+ **Here is the stsp by step process what i have done**
 
 Install Jenkins, configure Docker as agent, set up cicd, deploy applications to k8s and much more.
 
 ## AWS EC2 Instance
 
 - Go to AWS Console
-- Instances(running)
+- Instances(running)  
 - Launch instances
 
 <img width="994" alt="Screenshot 2023-02-01 at 12 37 45 PM" src="https://user-images.githubusercontent.com/43399466/215974891-196abfe9-ace0-407b-abd2-adcffe218e3f.png">
