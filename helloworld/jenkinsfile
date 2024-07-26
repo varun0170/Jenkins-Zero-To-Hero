@@ -1,14 +1,12 @@
 pipeline {
-
     agent {
-
-         docker { image 'node:16-alpine' }
-}
+        docker { image 'node:16-alpine' }
+    }
 
     stages {
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/varun0170/Jenkins-Zero-To-Hero
+                git 'https://github.com/varun0170/Jenkins-Zero-To-Hero'
             }
         }
 
@@ -17,10 +15,12 @@ pipeline {
                 sh 'npm install'
             }
         }
+
         stage('Build') {
             steps {
                 sh 'mvn clean compile'
-                   }
+            }
+        }
 
         stage('Static Code Analysis') {
             steps {
@@ -28,7 +28,6 @@ pipeline {
             }
         }
 
-        
         stage('Functional Testing') {
             steps {
                 echo 'Running functional tests...'
@@ -41,8 +40,7 @@ pipeline {
                 sh 'mvn package'
             }
         }
-
-            }
+    }
 
     post {
         always {
@@ -51,3 +49,4 @@ pipeline {
         }
     }
 }
+
