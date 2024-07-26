@@ -1,11 +1,16 @@
 pipeline {
     agent {
         docker { image 'node:16-alpine' }
+environment {
+        GIT_CREDENTIALS_ID = 'githubtoken'
     }
 
     stages {
         stage('Clone Repository') {
             steps {
+withCredentials([string(credentialsId: env.GIT_CREDENTIALS_ID, variable: 'GITHUBTOKEN')]) {
+                    sh 'git clone https://varun0170:${GITHUBTOKEN}@github.com/varun0170/Jenkins-Zero-To-Hero.git'
+                }
                 git 'https://github.com/varun0170/Jenkins-Zero-To-Hero'
             }
         }
